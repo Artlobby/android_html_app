@@ -236,59 +236,6 @@
     // End Definitions:..
     // 
 })();
-
-
-
 /**
-
-Hi, Today I'm going to show you how I enable the use of the back button on Android devices within my Webview HTML App.
-
-This will build on my previous tutorial, where I demonstrated how to quickly build and begin debugging your html games and apps on android. If you havent seen that tutorial yet, I'll link it in the description below for reference.
-
-
-Hey guys, David here, also known as DekitaRPG. I'll be making lots of diy tech && programming tutorial videos in the future so if you like that kinda stuff, make sure to click subscribe.
-
-Today I'm going to be building on my previous tutorial by "hooking" the android back button so I can control how it functions during the lifespan of my app. This allows me to use the back button to change pages or scenes within my apps javascript environement, as well as restrict its functionality entirely. 
-
-
-So, to get started, I first load my previous app project. 
-
-As I want to use the back button from within my javascript environement, I add some private variables into my Javascript interface class. This class is passed through to the apps webview object later which allows the functions to be accessed using javascript code.
-
-the first variable is a boolean that will be used to determine if the app will allow the back buttons normal functionality - which is to exit the app when pressed. 
-the second variable is another boolean that will be used to flag if the back button was pressed. 
-
-After the variables are defined I create some functions to control and use them.
-
-The first function I call 'setCanGoBack'. this function is prefixed with the @JavascriptInterface decleration. this will allow the function to be available from within the javascript environement later. it should be fairly obvious what this function will do.  It will be called from within javascript to allow or restrict the default behaviour of the back button. 
-
-
-The second function I call 'wasBackButtonPressed'. When called this function will return a boolean value for if the back button was pressed since the last time this function was called.  You can see from the function code that the flag is reset to false before returning the current value of the flag. 
-
-I then create a third new function for the javascript interface class, this third function will be used to force exit the app. This can be used for closing the app even if the back buttons functionality has been changed. 
-
-
-
-After these three functions have been defined I leave my custom javascript interface class and scroll down to below the main activities onCreate function.. Below onCreate I overwrite another one of the default android apps functions - this time, onBackPressed.  As you can likely tell from its name, this function controls the logic of the back button within the app. 
-
-Within the newly overwritten 'onBackPressed' function I first set the 'was_back_pressed' flag in my javascript interface class to true. Remember, this flag will reset back to false after the 'wasBackButtonPressed' function from the javascript interface class is called. 
-
-Then, I check to make sure that the webview object exists, and is currently focused. if it is, then I restrict the back buttons regular functionality based on the can_go_back variable from the js_interface class. If the app's webview isnt focused I have no idea how the back button could be pressed, but just incase, I allow the app to go back like normal, which should exit the app. 
-
-
-Now, all the code has been defined within the app. All thats left to do is decide how to use the back button within the app. I decided to use the popular RPG Maker MV engine to demonstrate...
-
-I wrote a plugin for the RPG Maker MV engine; however, this is just raw javascript, so the approach can easily be applied to regular html webpage apps.
-
-In my plugin code I have defined two main functions. isAndroidObjectAvailable, which returns a boolean based on if the android object is available.
-The android object is just a chosen name for the javascript interface class that gets passed to the webview running the javascript.
-
-The second main function is checkAndroidBackButtonWasPressed, which does exactly as its name suggests. If the android object isnt available, this function aways returns false. 
-
-
-
-after these two main functions are defined, I aliased some of the default rpg maker engine's javascript functions for game windows and scenes. This was done to allow for the app to exit like normal when back is pressed during the title scene. and if pressed during the game map, or game menus  it will go back menu pages, or bring up a handy prompt for the user asking if they want to exit the app..
-
-Overall, these small changes make the app experience feel like its much more tailored towards the android device. Coupled with other features from my previous tutorial, you should now be able to easily vibrate the users device, pop toast messages on the device, as well as control the logic of the back button - all from within the webview javascript environement!!
-
+* End of file
 */
